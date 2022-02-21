@@ -39,23 +39,17 @@ class tcprint():
 
     def decode(self, *strings: str) -> str:  # *args for tcprint.decode(string1, string2, string3)
 
-        try:
-            result_string = ''
-            for string in strings:
-                try:
-                    for tags_dict in self.tags:
-                        for tag in self.tags[tags_dict]:
-                            string = string.replace(
-                                tag, self.tags[tags_dict][tag])
+        result_string = ''
+        for string in strings:
+            for tags_dict in self.tags:
+                for tag in self.tags[tags_dict]:
+                    string = string.replace(
+                        tag, self.tags[tags_dict][tag])
 
-                    result_string += string  # натягивает стринги друг на друга
-                except Exception as _ex:
-                    self.err(_ex)
-            return result_string
-        except Exception as _ex:
-            self.err(_ex)
+            result_string += string  # натягивает стринги друг на друга
+        return result_string
 
-    def err(self, exception=None, comment='') -> None:
+    def err(self, exception=None, comment:any='') -> None:
         if comment:
             comment = f" comment: {str(comment)} "
         exc_type, exc_value, exc_traceback = sys.exc_info()
@@ -65,7 +59,7 @@ class tcprint():
         print(self.decode(  # exception не проходит через decode(), чтобы в exception были видны теги
             f"\n<bw>>>>>>>[Error]>>>> in: {ex_tb.name}    line: {ex_tb.lineno} -> />   <red>{ex_tb.line}   <bw>>{comment}<plain><white>"), str(exception), self.decode(f"\n<bg_white><black>[file]>> <plain>   {ex_tb.filename}"))
 
-    def log(self, **vars):
+    def log(self, **vars) -> None:
 
         for varname, varvalue in vars.items():
             print(self.decode(f'<bw> {str(varname)} \t:'), str(varvalue))
