@@ -1,15 +1,15 @@
-# from tcprint import tcp, tdecode, terr, tlog
+# from ctprint import ctp, ctdecode, cterr, ctlog
 
 
 class help_message():
 
     help_info: str = f"""
-<bw>>>>>>>[ tcprint.help() ]>>>> <plain><magenta> Help info: <plain>
+<bw>>>>>>>[ ctprint.help() ]>>>> <plain><magenta> Help info: <plain>
 <magenta>{'-'*40}/>"""
 
     description = f"""
-- All tcprint opening tags are always enclosed in angle brackets: '<magenta>< ><plain>'
-- tcprint have ONLY ONE CLOSING TAG - <magenta>/PRE>/> (reset all formating to sys default)
+- All ctprint opening tags are always enclosed in angle brackets: '<magenta>< ><plain>'
+- ctprint have ONLY ONE CLOSING TAG - <magenta>/PRE>/> (reset all formating to sys default)
 - for RESET FORMATING to default u can use tags <magenta><PREreset><plain> and <magenta><PREbg_reset><plain>.
 Also u can format text to white and background to black using <magenta><PREplain><plain>
 """
@@ -68,23 +68,23 @@ Also u can format text to white and background to black using <magenta><PREplain
         """
     methods: str = f"""
     <magenta>{'-'*24}
-    Logging tcprint methods:
+    Logging ctprint methods:
     {'-'*24}/>
-    <magenta>from<red> tcprint <magenta>import<red> tcp/>, <red>tdecode/>, <red>terr/>, <red>tlog/> # for example
+    <magenta>from<red> ctprint <magenta>import<red> ctp/>, <red>ctdecode/>, <red>cterr/>, <red>ctlog/> # for example
         
-        <blue>tcp/>(<green>'<PREbw>text\t\PRE>'/>)/> output:
+        <blue>ctp/>(<green>'<PREbw>text\t\PRE>'/>)/> output:
         <bw>text\t/>
         
-        <blue>tdecode/>(<green>'<PREbw>text\t\PRE>'/>)/> return-> <bw>text\t/>
+        <blue>ctdecode/>(<green>'<PREbw>text\t\PRE>'/>)/> return-> <bw>text\t/>
         
-        <blue>terr/>(<yellow>Exception/>, <green>'your comment'/>)/> error message output:
+        <blue>cterr/>(<yellow>Exception/>, <green>'your comment'/>)/> error message output:
 <bw>>>>>>>[Error]>>>> in: <name>    line: <line index> ->/><red>    <the line's code>   <bw>> comment: your comment /> <excaption>
 <bw>[file]>> />   <path to file> 
 
         <red>var1/>=<yellow>0
         <red>var2/>=<green>'text'
         <red>var3/>="""+"""{<green>'dict_key','<PREbw>text/PRE>'/>}"""+"""
-        <blue>tlog/>(<red>var1 = <red>var1/>, <red>var2/> = <red>var2/> , <red>var3/> = <red>var3/>)/> log message output:
+        <blue>ctlog/>(<red>var1 = <red>var1/>, <red>var2/> = <red>var2/> , <red>var3/> = <red>var3/>)/> log message output:
  <bw>var1   :/> 0
  <bw>var2   :/> text
  <bw>var3_dict_key  :/> {'dict_key','<PREbw>text/PRE>'}
@@ -94,20 +94,20 @@ Also u can format text to white and background to black using <magenta><PREplain
 
     test_example: str = """
 />#./test.py
-<magenta>from<red> tcprint <magenta>import<red> tcp/>, <red>tdecode/>, <red>terr/>, <red>tlog/>
+<magenta>from<red> ctprint <magenta>import<red> ctp/>, <red>ctdecode/>, <red>cterr/>, <red>ctlog/>
 
-# tcp.help()  # print help message
+# ctp.help()  # print help message
 
 <magenta>def/> <blue>test/>():
 
     <magenta>try/>:
     
-        <blue>tcp/>(<green>'<PREbw> b&w !!! /PRE><PREmagenta> magenta <PREplain> plain <PREgreen>green /PRE>etc'/>)
+        <blue>ctp/>(<green>'<PREbw> b&w !!! /PRE><PREmagenta> magenta <PREplain> plain <PREgreen>green /PRE>etc'/>)
         <yellow>1<blue>/<yellow>0/>  # for error's view example
         
     <magenta>except<yellow> Exception<magenta> as <red>_ex/>:
         
-        <blue>terr/>(<red>_ex/>, [{<green>'excepted'/>: <yellow>3.1415926535/>}]) # terr(Exception, your_comment)
+        <blue>cterr/>(<red>_ex/>, [{<green>'excepted'/>: <yellow>3.1415926535/>}]) # cterr(Exception, your_comment)
 
 
 <magenta>if <red>__name__ <blue>==<green> '__main__'/>:

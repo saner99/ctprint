@@ -1,16 +1,39 @@
 [tool.poetry]
 name = "ctprint"
-version = "0.0.0."
+version = "0.1.7"
 description = "coloring terminal output using '<tags> embedded in strings'"
 authors = ["saner99 <it@saner99.ru>"]
+
 license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/saner99/ctprint"
+repository = "https://github.com/saner99/ctprint"
+keywords = ["color", "colour", "terminal", "text", "ansi", "terminal", "print", "windows", "crossplatform", "xplatform", "colorama", "console", "colorization", "output", "markup", "logging", "log", "debug", "debugging"]
+
+classifiers = [
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Terminals",
+]
+
+packages = [{ include = "ctprint", from = "ctprint" }]
+
+#packages = [{ include = "ctprint", from = "ctprint/ctprint/ctprint.py" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 colorama = "^0.4.4"
 
 [tool.poetry.dev-dependencies]
+pytest = "^5.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+ctprint = 'ctprint:main'

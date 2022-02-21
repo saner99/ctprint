@@ -1,12 +1,12 @@
-import sys
-import traceback  # for tcprint.err()
-# colorama определяет ansi-коды, изменяет output, добавляет синтаксис. кроссплатформенная
+import sys  # for ctprint.err()
+import traceback  # for ctprint.err()
+# colorama - makes ANSI escape character sequences (for producing colored terminal text and cursor positioning) work under MS Windows.
 from colorama import init, Fore, Back
-from help_message import help_message as h_m  # класс со стрингами
-# colorama autoreset автоматически возвращает к дефолтным системным параметрам
+from . import test_help_message as h_m  # класс со стрингами
+# colorama autoreset=True - automatically back to default color
 init(autoreset=True)
 
-# from tcprint import tcp, tdecode, terr, tlog # tcprint imports
+# from ctprint import ctp, ctdecode, cterr, ctlog # ctprint imports
 
 
 tags: dict[str, dict[str, str]] = {
@@ -29,15 +29,15 @@ tags: dict[str, dict[str, str]] = {
 }
 
 
-class tcprint():
+class ctprint():
 
-    def __init__(self, string: str = None) -> None:
+    def __init__(self, *strings: str) -> None:
         self.tags = tags
 
-        if string:
-            print(self.decode(string))
+        if strings:
+            print(self.decode(*strings))
 
-    def decode(self, *strings: str) -> str:  # *args for tcprint.decode(string1, string2, string3)
+    def decode(self, *strings: str) -> str:  # *args for ctprint.decode(string1, string2, string3)
 
         result_string = ''
         for string in strings:
@@ -49,14 +49,14 @@ class tcprint():
             result_string += string  # натягивает стринги друг на друга
         return result_string
 
-    def err(self, exception=None, comment:any='') -> None:
+    def err(self, exception=None, comment: any = '') -> None:
         if comment:
             comment = f" comment: {str(comment)} "
         exc_type, exc_value, exc_traceback = sys.exc_info()
         # берёт тб последней ошибки. хорошо бы добавить проверку по exception
         ex_tb = traceback.extract_tb(exc_traceback, limit=1)[0]
 
-        print(self.decode(  # exception не проходит через decode(), чтобы в exception были видны теги
+        print(self.decode(  # the exception is not decoded so that the tags are visible in it
             f"\n<bw>>>>>>>[Error]>>>> in: {ex_tb.name}    line: {ex_tb.lineno} -> />   <red>{ex_tb.line}   <bw>>{comment}<plain><white>"), str(exception), self.decode(f"\n<bg_white><black>[file]>> <plain>   {ex_tb.filename}"))
 
     def log(self, **vars) -> None:
@@ -66,44 +66,40 @@ class tcprint():
 
     def help() -> None:
         help_msg = h_m.help_info + h_m.description + h_m.tags + h_m.methods
-        print(tcprint().decode(help_msg).replace(
-            'PRE', ''))  # PRE - разделяет теги
+        print(ctprint().decode(help_msg).replace(
+            'PRE', ''))  # PRE - separates the tags
 
-        if input(tdecode("""
+        if input(ctdecode("""
     <magenta>Press <bw> Y /><magenta> if u wanna see short live example: />""")).lower() == 'y':
 
-            print(tcprint().decode(h_m.test_example).replace('PRE', ''))
-            tcprint("<info> def test() output:/>\n")
+            print(ctprint().decode(h_m.test_example).replace('PRE', ''))
+            ctprint("<info> def test() output:/>\n")
             test()
 
-        tcprint(h_m.ending)
+        ctprint(h_m.ending)
 
 
 # for imports
-tcp = tcprint
-terr = tcp().err
-tdecode = tcp().decode
-tlog = tcp().log
+ctp = ctprint
+cterr = ctp().err
+ctdecode = ctp().decode
+ctlog = ctp().log
 
 # example:
 # ./test.py
-# from tcprint import tcp, terr, tdecode
+# from ctprint import ctp, cterr, ctdecode
 
-# tcp.help()  # print help message
+# ctp.help()  # print help message
 
 
 def test():  # usage example
 
     try:
 
-        tcp('<bw> b&w !!! /><magenta> magenta <plain> plain <green>green />etc')
+        ctp('<bw> b&w !!! /><magenta> magenta <plain> plain <green>green />etc')
         1/0  # for error's view example
 
     except Exception as _ex:
 
-        # terr(Exception, your_comment)
-        terr(_ex, [{'excepted': 3.1415926535}])
-
-
-if __name__ == '__main__':
-    tcp.help()
+        # cterr(Exception, your_comment)
+        cterr(_ex, [{'excepted': 3.1415926535}])

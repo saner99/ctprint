@@ -1,90 +1,100 @@
-<h1 align="center">Hi there! Here a TagsColoredPrint
+<h1 align="center">Hi there! Here a Color-Tagged Print
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
-<h3 align="center">Python script for coloring terminal output using '<tags> embedded in strings' (like a simle text markup language)</h3>
-  
-![](https://api.visitorbadge.io/api/VisitorHit?user=saner9999f&repo=tcprint&countColor=%237B1E7A)
-![](https://img.shields.io/github/repo-size/saner99/tcprint?color=g&style=for-the-badge)
-![](https://img.shields.io/github/checks-status/saner99/tcprint/master?color=g&style=for-the-badge)
-![](https://img.shields.io/github/last-commit/saner99/tcprint/master?style=for-the-badge)
-![](https://img.shields.io/github/release-date/saner99/tcprint?style=for-the-badge)
-![](https://img.shields.io/github/stars/saner99/tcprint?style=for-the-badge)
-![](https://img.shields.io/github/forks/saner99/tcprint?style=for-the-badge)
-  
+<p align="center">
+<img src=https://img.shields.io/pypi/v/ctprint.svg?color=%237B1E7A&style=flat-square>
+<img src=https://img.shields.io/github/watchers/saner99/ctprint?color=%237B1E7A&label=visitors&style=flat-square>
+<img src=https://img.shields.io/github/repo-size/saner99/ctprint?color=g&style=flat-square>
+<img src=https://img.shields.io/github/checks-status/saner99/ctprint/master?color=g&style=flat-square>
+<img src=https://img.shields.io/github/last-commit/saner99/ctprint/master?style=flat-square>
+<img src=https://img.shields.io/github/stars/saner99/ctprint?style=flat-square>
+<img src=https://img.shields.io/github/forks/saner99/ctprint?style=flat-square>
+<!-- ![](https://img.shields.io/github/release-date/saner99/ctprint?style=for-the-badge) -->
+</p>
+<h3 align="center">Cross-platform colorization terminal text using '&lt;tags> embedded in strings' (text markup)</h3>
 
-## Installation 
-  ```python
-  pip install tcprint
-  ```
+## Installation
+
+```python
+pip install ctprint
+```
+_or_
+```python
+poetry add ctprint
+```
+
 ## Usage
 
-### Initialization 
+### Initialization
+
 ```python
-  from tcprint import tcp, tdecode, terr, tlog # callable 
+from ctprint import ctp, ctdecode, cterr, ctlog  # callable
 ```
 
-### tcp.help()
-_print colored and some interractive help-message. nothing return_
+### ctp.help() -> None
+
+_print colored and some interactive help-message. nothing return_
+
 ```python
-tcp.help() # print help message
+ctp.help()  # print help message
 ```
-_output:_
 
-  
-  
-  
-### tcp(string: str)
-  _obj of tcprint. decode `<tags>` in the string and print it. nothing return_
-  ```python
-  tcp('<bw> black text on white background /> default formating') # decode <tags> and then print the string
-  ```
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/31666804/154783032-58888b00-d028-4a17-8d6c-bfe34bb8e604.png" width="100%" title="tcp.help() output">
-  
-  ### tdecode( *strings: str) -> str
-  _decode `<tags>` in the strings and return it decoded_
-  ```python
-  tdecode('<bw> black text on white background /> default formating') # decode <tags> and then print the string
-  ```
-  _return string_
-  
-  ### terr(exception=None, comment='') -> None
-  _exception required. print colored error message from try/except. nothing return_
-  ```python
-  try:
-    1/0 #any broken line
-  except Exception as _ex:
-    terr(_ex)
-  ```
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/31666804/154783196-226b05f0-7401-41a1-8acc-84837140d7a0.png">
-  
-  ### tlog(**vars) -> None
-  _vars required. print colored message with names $ values of all **vars. nothibg return_
-  
-  ```python
- var0 = var1 = 0
+### ctp(*strings: str) -> None
 
-def example_tlog():
+_obj of ctprint. decode `<tags>` in the strings and print it. nothing return_
 
-    var2 = 'string val'  # out of the try, out of the function, var0=var2 - nothing problems.
-    var3 = {'tcp_string': '<bg_red><red>red text on red background (NO) >'}
+```python
+# decode <tags> and then print the string
+ctp('<bw> black text on white background /> default formating')
+```
 
-    tlog(var0=var0, var1=var1, var2=var2, var3=var3)
-  ```
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/31666804/154783320-e90bd588-6d1a-4bef-a8c9-542302e30726.png" width="100%" title="tcp.help() output">
+  <img src="https://user-images.githubusercontent.com/31666804/154970116-1071c2c8-bca0-4da6-8959-0c44259c1803.png" width="100%" title="ctp.help() output"></p>
   
-  
- 
-  
-<!--   
-- [`collide-2d-aabb-aabb`](https://github.com/noffle/collide-2d-aabb-aabb)
-- [`goertzel`](https://github.com/noffle/goertzel)
-- [`twitter-kv`](https://github.com/noffle/twitter-kv) -->
-  
-  <h2 align ="center"> tcprint.help()</h2>
+### ctdecode( *strings: str) -> str
+_decode `<tags>` in the strings and return it decoded_
+```python
+# decode <tags> in the strings and return decoded string
+string0 = ' background /> default'
+string1 = ' formating'
+ctdecode('<bw> black text on white', string0, string1)
+```
+_return string_
+
+### cterr(exception=None, comment='') -> None
+_exception required. print colored error message from try/except. nothing return_
+```python
+try:
+    1/0  # any broken line
+except Exception as _ex:
+    cterr(_ex)
+```
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/31666804/154776452-16a1722a-bd08-4432-af8f-254a5f3d4a41.png" width="100%" title="tcp.help() output">
-  <img src="https://user-images.githubusercontent.com/31666804/154778504-3de31e36-4c7b-43fc-820a-727c2a397b20.png" width="100%" title="tcp.help() output[1]">
-  <img src="https://user-images.githubusercontent.com/31666804/154778836-3f2168a1-c9ec-4602-ace7-54c429bb4ff5.png" width="100%" title="tcp.help() output[2]">
+  <img src="https://user-images.githubusercontent.com/31666804/154970120-48464807-9d99-4833-b873-3453eec656f6.png"></p>
+  
+### ctlog(**vars) -> None
+_vars required. print colored message with names $ values of all **vars. nothibg return_
+
+```python
+var0 = var1 = 0
+
+def example_ctlog():
+
+    var2 = 'string val'
+    var3 = {'ctp_string': '<bg_red><red>red text on red background (NO) >'}
+
+    # out of the function, var0=var2 - nothing problems.
+    ctlog(var0=var0, var1=var1, var2=var2, var3=var3)
+```
+<p align="center">
+<img src="https://user-images.githubusercontent.com/31666804/154970137-f07b1ca4-f73b-4ffd-a1a1-d49905e502fa.png" width="100%" title="ctp.help() output"></p>
+
+## Thanks
+- [`colorama - wonderfull lib. Makes ANSI escape character sequences work under MS Windows. `](https://pypi.org/project/colorama/)
+
+
+<h2 align ="center"> ctprint.help()</h2>
+<p align="center">
+<img src="https://user-images.githubusercontent.com/31666804/154970057-6f710980-c6c1-470b-a5d8-ac1006b04eda.png" width="100%" title="ctp.help() output">
+<img src="https://user-images.githubusercontent.com/31666804/154970079-d4f150fe-fa74-466c-8e57-576c6b5cb0ce.png" width="100%" title="ctp.help() output[1]">
+<img src="https://user-images.githubusercontent.com/31666804/154970102-ea031f0e-a836-47c8-bf0d-7235a8937f6f.png" width="100%" title="ctp.help() output[2]">
 </p>
