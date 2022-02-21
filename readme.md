@@ -6,9 +6,9 @@
 <img src=https://img.shields.io/github/repo-size/saner99/ctprint?color=g&style=flat-square>
 <img src=https://img.shields.io/github/checks-status/saner99/ctprint/master?color=g&style=flat-square>
 <img src=https://img.shields.io/github/last-commit/saner99/ctprint/master?style=flat-square>
-<img src=https://img.shields.io/github/stars/saner99/ctprint?style=flat-square>
-<img src=https://img.shields.io/github/forks/saner99/ctprint?style=flat-square>
-<!-- ![](https://img.shields.io/github/release-date/saner99/ctprint?style=for-the-badge) -->
+<!-- <img src=https://img.shields.io/github/stars/saner99/ctprint?style=flat-square>
+<img src=https://img.shields.io/github/forks/saner99/ctprint?style=flat-square> -->
+<img src=https://img.shields.io/github/release-date/saner99/ctprint?style=flat-square>
 </p>
 <h3 align="center">Cross-platform colorization terminal text using '&lt;tags> embedded in strings' (text markup)</h3>
 
