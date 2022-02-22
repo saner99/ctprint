@@ -9,7 +9,7 @@ init(autoreset=True)
 # from ctprint import ctp, ctdecode, cterr, ctlog # ctprint imports
 
 
-tags: dict[str, dict[str, str]] = {
+tags = {
 
     'simple_styles': {'<plain>': Fore.WHITE + Back.BLACK,  # white text on black background
                       '<bw>': Fore.BLACK + Back.WHITE,  # black text on white background

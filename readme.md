@@ -2,12 +2,12 @@
 <img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
 <p align="center">
 <img src=https://img.shields.io/pypi/v/ctprint.svg?color=%237B1E7A&style=flat-square>
-<img src=https://img.shields.io/github/watchers/saner99/ctprint?color=%237B1E7A&label=visitors&style=flat-square>
+<img src=https://shields-io-visitor-counter.herokuapp.com/badge?page=https://github.com/saner99/ctprint&color=purple&style=flat-square>
 <img src=https://img.shields.io/github/repo-size/saner99/ctprint?color=g&style=flat-square>
 <img src=https://img.shields.io/github/checks-status/saner99/ctprint/master?color=g&style=flat-square>
 <img src=https://img.shields.io/github/last-commit/saner99/ctprint/master?style=flat-square>
-<!-- <img src=https://img.shields.io/github/stars/saner99/ctprint?style=flat-square>
-<img src=https://img.shields.io/github/forks/saner99/ctprint?style=flat-square> -->
+<img src=https://img.shields.io/github/license/saner99/ctprint?color=g&style=flat-square>
+<img src=https://img.shields.io/pypi/dd/ctprint?label=PyPI%20downloads&style=flat-square>
 <img src=https://img.shields.io/github/release-date/saner99/ctprint?style=flat-square>
 </p>
 <h3 align="center">Cross-platform colorization terminal text using '&lt;tags> embedded in strings' (text markup)</h3>
@@ -88,13 +88,14 @@ def example_ctlog():
 <p align="center">
 <img src="https://user-images.githubusercontent.com/31666804/154970137-f07b1ca4-f73b-4ffd-a1a1-d49905e502fa.png" width="100%" title="ctp.help() output"></p>
 
-## Thanks
-- [`colorama - wonderfull lib. Makes ANSI escape character sequences work under MS Windows. `](https://pypi.org/project/colorama/)
-
-
 <h2 align ="center"> ctprint.help()</h2>
 <p align="center">
 <img src="https://user-images.githubusercontent.com/31666804/154970057-6f710980-c6c1-470b-a5d8-ac1006b04eda.png" width="100%" title="ctp.help() output">
 <img src="https://user-images.githubusercontent.com/31666804/154970079-d4f150fe-fa74-466c-8e57-576c6b5cb0ce.png" width="100%" title="ctp.help() output[1]">
 <img src="https://user-images.githubusercontent.com/31666804/154970102-ea031f0e-a836-47c8-bf0d-7235a8937f6f.png" width="100%" title="ctp.help() output[2]">
 </p>
+
+
+## Thanks
+- [`colorama - wonderfull lib. Makes ANSI escape character sequences work under MS Windows. `](https://pypi.org/project/colorama/)
+
